@@ -4,13 +4,32 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+//Component
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { SettingsPage } from '../pages/settings/settings';
+import { TabsPage } from '../pages/tabs/tabs';
+
+//Livre et CD
+import { BookListPage } from '../pages/book-list/book-list';
+import { LendBookPage } from '../pages/book-list/lend-book/lend-book';
+
+import { CdListPage } from '../pages/cd-list/cd-list';
+import { LendCdPage } from '../pages/cd-list/lend-cd/lend-cd';
+
+
+//Service
+import { CdsService } from '../services/cds.service';
+import { LivreService } from '../services/livres.service';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    SettingsPage,
+    TabsPage,
+    BookListPage,
+    LendBookPage,
+    CdListPage,
+    LendCdPage
   ],
   imports: [
     BrowserModule,
@@ -19,9 +38,16 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    SettingsPage,
+    TabsPage,
+    BookListPage,
+    LendBookPage,
+    CdListPage,
+    LendCdPage
   ],
   providers: [
+    LivreService,
+    CdsService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
